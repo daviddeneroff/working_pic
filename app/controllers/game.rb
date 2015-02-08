@@ -28,5 +28,4 @@ post '/game/rotate' do
   
   current_post = Post.find(params[:post_id])
   redirect "/game/post/#{params[:direction] == 'back' ? Post.previous_post_id(current_post.id) : Post.next_post_id(current_post.id)}"
-  
 end
