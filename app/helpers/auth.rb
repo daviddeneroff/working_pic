@@ -1,3 +1,4 @@
+# Courtesy of M. Bunday
 def current_user
   if session[:user_id]
     return User.find(session[:user_id])
