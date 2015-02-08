@@ -3,7 +3,9 @@ get '/comment/:post_id' do
 end
 
 post "/comments/:post_id" do
-  Comment.create(content: params[:content], post_id: params[:post_id])
+  puts "PARAMS #{params}"
+  puts "USER #{session[:user_id]}"
+  Comment.create(content: params[:content], post_id: params[:post_id], user_id: current_user.id)
   redirect '/posts'
 end
 
