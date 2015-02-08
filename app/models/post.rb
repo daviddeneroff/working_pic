@@ -11,4 +11,8 @@ class Post < ActiveRecord::Base
     find_by(id: current_id - 1) ? current_id - 1 : all.last.id
   end
 
+  def comments_by_user?(id)
+    !self.comments.where(user_id: id).empty?
+  end
+
 end
