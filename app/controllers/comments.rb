@@ -1,6 +1,5 @@
 get '/comment/:post_id' do
-  @post = params[:post_id]
-  erb :comment_form
+  erb :'comments/comment_form', locals: {post_id: params[:post_id]}
 end
 
 post "/comments/:post_id" do
