@@ -1,15 +1,8 @@
-
 <div>
   <h3>Welcome <%= @user.username.capitalize %></h3>
 </div>
 
 <div>
-  <form action="/posts" method= "GET">
-    <input type="submit" value="All Posts">
-  </form>
-   <form action="/logout" method= "POST">
-    <input type="submit" value="Logout">
-  </form>
   <form action="/delete/<%=@user.id%>" method= "POST">
       <input type="hidden" name="_method" value="Delete">
       <input type="submit" value="Delete Account">
@@ -29,21 +22,4 @@
   <form action="/posts/new" method= "GET">
     <input type="submit" value="Make a New Post">
   </form>
-  <% @user.posts.each do |post| %>
-  Title: <%= post.title %>: <br>
-    <img  class="photo" src="<%=post.photo_url%>"><br>
-    <div>
- <form action="/edit/<%=post.id%>" method= "GET">
-    <input type="hidden" name="_method" value="Update Post">
-    <input type="submit" value="Update Post">
-  </form>
-  <form action="/delete/post/<%=post.id%>" method= "POST">
-    <input type="hidden" name="_method" value="Delete">
-    <input type="submit" value="Delete">
-  </form>
-</div>
-     <h4> Comments: </h4>
-    <%post.comments.each do |comment|%>
-     <%=comment.content%><br>
-    <%end%>
-  <%end%>
+  <%= erb :'posts/all_posts', locals: {posts: posts} %>
