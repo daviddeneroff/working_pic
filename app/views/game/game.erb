@@ -21,5 +21,7 @@
 <p>Down votes: <%= post.negative_score %></p>
 <p>Net score: <%= post.positive_score - post.negative_score %></p>
 
-<p> <%= erb :'comments/comment_form', locals: {post_id: post.id} %> </p>
+<% if current_user %>
+	<p> <%= erb :'comments/comment_form', locals: {post_id: post.id} %> </p>
+<% end %>
 <p><%= erb :'comments/comments_partial', locals: {post: post} %></p>
