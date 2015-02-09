@@ -27,6 +27,6 @@ end
 delete '/delete/post/:id' do |id|
   post = Post.find(id)
   x = post.user_id
-  post.delete
+  post.destroy
   redirect "/user/#{x}"
 end
