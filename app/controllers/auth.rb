@@ -12,13 +12,15 @@ post '/login' do
 end
 
 get '/logout' do
-  erb :logout
-end
-
-post '/logout' do
+  # erb :logout
   session.clear
   redirect '/login'
 end
+
+# post '/logout' do
+#   session.clear
+#   redirect '/login'
+# end
 
 
 post '/signup' do
@@ -29,7 +31,7 @@ end
 get '/user/:id' do |id|
   @user = User.find(id)
   if session[:user_id] == @user.id
-    erb :show
+    erb :show, locals: { posts: Post.all }
   else
     redirect '/login'
   end
