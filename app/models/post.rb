@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   has_many :tags
 
   def self.next_post_id(current_id)
-    find_by(id: current_id + 1) ? current_id + 1 : 1
+    find_by(id: current_id + 1) ? current_id + 1 : all.first.id
   end
 
   def self.previous_post_id(current_id)

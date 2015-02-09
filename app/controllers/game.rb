@@ -1,6 +1,6 @@
 get '/' do
 
-  redirect '/game/post/1'
+  redirect "/game/post/#{ Post.all.first.id }"
   
 end
 
