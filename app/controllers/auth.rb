@@ -5,7 +5,7 @@ end
 post '/login' do
   if @user = User.find_by(username: params[:user][:username]).try(:authenticate, params[:user][:password])
     session[:user_id] = @user.id
-    redirect "/user/#{@user.id}"
+    redirect '/'
   else
     redirect '/login'
   end
@@ -25,6 +25,7 @@ end
 
 post '/signup' do
   User.create(params[:user])
+  session[:user_id] = User.last.id
   redirect '/'
 end
 
@@ -47,7 +48,7 @@ delete "/delete/:user_id" do |user_id|
   # user.posts.each do |post|
   #   post.delete
   # end
-  user.delete
+  user.destroy
   session.clear
   redirect '/login'
 end
