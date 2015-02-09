@@ -1,5 +1,6 @@
 <div id="login-toolbar">
       <% if current_user %>
+            <p>Welcome, <%= current_user.username %> </p>
             <p><a href="/logout">Logout</a></p>
             <% unless user_page? %>
               <p><a href="/user/<%= current_user.id %>">Posts and Account Settings</a></p>
