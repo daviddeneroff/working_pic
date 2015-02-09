@@ -5,7 +5,6 @@ class Post < ActiveRecord::Base
 
   def self.next_post_id(current_id)
     current_index = all.index(all.find(current_id))
-    puts "current index: #{current_index}"
     current_index < count - 1  ? all[current_index + 1].id : all.first.id
 
   end
