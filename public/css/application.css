@@ -71,3 +71,8 @@ code {
     margin-left: -1em;
     overflow: auto;
 }
+
+#login-toolbar, #login-toolbar a {
+    color: red;
+    display: inline;
+}

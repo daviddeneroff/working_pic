@@ -3,14 +3,14 @@
             <p>Welcome, <%= current_user.username %> </p>
             <p><a href="/logout">Logout</a></p>
             <% unless user_page? %>
-              <p><a href="/user/<%= current_user.id %>">Posts and Account Settings</a></p>
+              <a href="/user/<%= current_user.id %>">Posts and Account Settings</a>
             <% end %>
       <% else %> 
         <% unless login_page? %>
-            <p><a href="/login">Login or Sign up</a></p>
+            <a href="/login">Login or Sign up</a>
         <% end %>
       <% end %>
       <% unless main_page? %>
-        <p><a href="/">Main</a></p>
+        <a href="/">Main</a>
       <% end %>
 </div>
