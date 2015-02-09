@@ -1,5 +1,5 @@
 <form action="/posts/<%=@post.id%>" method="POST">
   <input type="hidden" name="_method" value="PUT">
-  Edit Title: <input type="text" name="title">
+  Edit Title: <input type="text" name="title" value="<%= @post.title %>">
   <input type="submit" value="Make Edit">
 </form>
