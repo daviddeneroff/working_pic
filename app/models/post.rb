@@ -4,11 +4,15 @@ class Post < ActiveRecord::Base
   has_many :tags
 
   def self.next_post_id(current_id)
-    find_by(id: current_id + 1) ? current_id + 1 : all.first.id
+    current_index = all.index(all.find(current_id))
+    puts "current index: #{current_index}"
+    current_index < count - 1  ? all[current_index + 1].id : all.first.id
+
   end
 
   def self.previous_post_id(current_id)
-    find_by(id: current_id - 1) ? current_id - 1 : all.last.id
+    current_index = all.index(all.find(current_id))
+    current_index > 0 ? all[current_index - 1].id : all.last.id
   end
 
   def comments_by_user?(id)
